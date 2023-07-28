@@ -46,15 +46,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/jcu" />
 
-    <TextView
-        android:id="@+id/subjectID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/subjectName"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/subjectID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/subjectName"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/subjectName"

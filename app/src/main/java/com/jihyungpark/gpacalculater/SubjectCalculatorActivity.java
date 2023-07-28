@@ -38,6 +38,41 @@ public class SubjectCalculatorActivity extends AppCompatActivity implements Adap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject_calculator);
 
+        Log.i("test12345", ((EditText) findViewById(R.id.subjectName)).getText().toString());
+
+        if (savedInstanceState != null){
+
+            EditText test1 = findViewById(R.id.itemName1);
+            test1.setText(savedInstanceState.getString("test1"));
+
+
+
+            for(int i = 1; i < 9; i++) {
+                String idItem = "itemName" + i;
+                String idMark = "mark" + i;
+                String idFullMark = "fullMark" + i;
+                String percentageId = "percentage" + i;
+                String resultId = "resultEach" + i;
+
+                @SuppressLint("DiscouragedApi") int idItemInt = getResources().getIdentifier(idItem, "id", getPackageName());
+                @SuppressLint("DiscouragedApi") int idMarkInt = getResources().getIdentifier(idMark, "id", getPackageName());
+                @SuppressLint("DiscouragedApi") int idFullMarkInt = getResources().getIdentifier(idFullMark, "id", getPackageName());
+                @SuppressLint("DiscouragedApi") int percentageIdInt = getResources().getIdentifier(percentageId, "id", getPackageName());
+                @SuppressLint("DiscouragedApi") int resultIdInt = getResources().getIdentifier(resultId, "id", getPackageName());
+
+                ((EditText) findViewById(idItemInt)).setText(savedInstanceState.getString(idItem));
+                ((EditText) findViewById(idMarkInt)).setText(savedInstanceState.getString(idMark));
+                ((EditText) findViewById(idFullMarkInt)).setText(savedInstanceState.getString(idFullMark));
+                ((EditText) findViewById(percentageIdInt)).setText(savedInstanceState.getString(percentageId));
+                ((TextView) findViewById(resultIdInt)).setText(savedInstanceState.getString(resultId));
+            }
+
+            ((EditText) findViewById(R.id.subjectName)).setText("subjectName");
+            ((TextView) findViewById(R.id.subjectID)).setText("subjectID");
+
+
+        }
+
         dataSaveButton = findViewById(R.id.dataSaveButton);
         dataDeleteButton = findViewById(R.id.dataDeleteButton);
         subjectSpinner = findViewById(R.id.subjectSpinner);
@@ -47,6 +82,8 @@ public class SubjectCalculatorActivity extends AppCompatActivity implements Adap
        AddData();
        DeleteData();
        loadSubjectSpinnerData();
+
+
     }
 
     public void  AddData(){
@@ -85,41 +122,44 @@ public class SubjectCalculatorActivity extends AppCompatActivity implements Adap
                     percentageValues.add((((EditText) findViewById(percentageIdInt)).getText().toString()).isEmpty() ? "0" : ((TextView) findViewById(percentageIdInt)).getText().toString());
                     resultValues.add(((TextView) findViewById(resultIdInt)).getText().toString());
                 }
+                if(!subjectName.isEmpty()) {
+                    if (!subjectId.isEmpty()) {
+                        boolean update = subjectDB.updateData(subjectId, subjectName,
+                                itemNameValues.get(0), markValues.get(0), fullMarkValues.get(0), percentageValues.get(0), resultValues.get(0),
+                                itemNameValues.get(1), markValues.get(1), fullMarkValues.get(1), percentageValues.get(1), resultValues.get(1),
+                                itemNameValues.get(2), markValues.get(2), fullMarkValues.get(2), percentageValues.get(2), resultValues.get(2),
+                                itemNameValues.get(3), markValues.get(3), fullMarkValues.get(3), percentageValues.get(3), resultValues.get(3),
+                                itemNameValues.get(4), markValues.get(4), fullMarkValues.get(4), percentageValues.get(4), resultValues.get(4),
+                                itemNameValues.get(5), markValues.get(5), fullMarkValues.get(5), percentageValues.get(5), resultValues.get(5),
+                                itemNameValues.get(6), markValues.get(6), fullMarkValues.get(6), percentageValues.get(6), resultValues.get(6),
+                                itemNameValues.get(7), markValues.get(7), fullMarkValues.get(7), percentageValues.get(7), resultValues.get(7));
 
-                if (!subjectId.isEmpty()){
-                    boolean update = subjectDB.updateData(subjectId, subjectName,
-                            itemNameValues.get(0), markValues.get(0), fullMarkValues.get(0), percentageValues.get(0), resultValues.get(0),
-                            itemNameValues.get(1), markValues.get(1), fullMarkValues.get(1), percentageValues.get(1), resultValues.get(1),
-                            itemNameValues.get(2), markValues.get(2), fullMarkValues.get(2), percentageValues.get(2), resultValues.get(2),
-                            itemNameValues.get(3), markValues.get(3), fullMarkValues.get(3), percentageValues.get(3), resultValues.get(3),
-                            itemNameValues.get(4), markValues.get(4), fullMarkValues.get(4), percentageValues.get(4), resultValues.get(4),
-                            itemNameValues.get(5), markValues.get(5), fullMarkValues.get(5), percentageValues.get(5), resultValues.get(5),
-                            itemNameValues.get(6), markValues.get(6), fullMarkValues.get(6), percentageValues.get(6), resultValues.get(6),
-                            itemNameValues.get(7), markValues.get(7), fullMarkValues.get(7), percentageValues.get(7), resultValues.get(7));
+                        if (update == true) {
+                            Toast.makeText(SubjectCalculatorActivity.this, "Data successfully Updated", Toast.LENGTH_LONG).show();
+                            loadSubjectSpinnerData();
+                        } else {
+                            Toast.makeText(SubjectCalculatorActivity.this, "Something went wrong!", Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        boolean insertData = subjectDB.addData(subjectName,
+                                itemNameValues.get(0), markValues.get(0), fullMarkValues.get(0), percentageValues.get(0), resultValues.get(0),
+                                itemNameValues.get(1), markValues.get(1), fullMarkValues.get(1), percentageValues.get(1), resultValues.get(1),
+                                itemNameValues.get(2), markValues.get(2), fullMarkValues.get(2), percentageValues.get(2), resultValues.get(2),
+                                itemNameValues.get(3), markValues.get(3), fullMarkValues.get(3), percentageValues.get(3), resultValues.get(3),
+                                itemNameValues.get(4), markValues.get(4), fullMarkValues.get(4), percentageValues.get(4), resultValues.get(4),
+                                itemNameValues.get(5), markValues.get(5), fullMarkValues.get(5), percentageValues.get(5), resultValues.get(5),
+                                itemNameValues.get(6), markValues.get(6), fullMarkValues.get(6), percentageValues.get(6), resultValues.get(6),
+                                itemNameValues.get(7), markValues.get(7), fullMarkValues.get(7), percentageValues.get(7), resultValues.get(7));
 
-                    if(update == true){
-                        Toast.makeText(SubjectCalculatorActivity.this, "Data successfully Updated", Toast.LENGTH_LONG).show();
-                        loadSubjectSpinnerData();
-                    }else{
-                        Toast.makeText(SubjectCalculatorActivity.this, "Something went wrong!", Toast.LENGTH_LONG).show();
+                        if (insertData == true) {
+                            Toast.makeText(SubjectCalculatorActivity.this, "Data successfully Inserted", Toast.LENGTH_LONG).show();
+                            loadSubjectSpinnerData();
+                        } else {
+                            Toast.makeText(SubjectCalculatorActivity.this, "Something went wrong!", Toast.LENGTH_LONG).show();
+                        }
                     }
                 }else{
-                    boolean insertData = subjectDB.addData(subjectName,
-                            itemNameValues.get(0), markValues.get(0), fullMarkValues.get(0), percentageValues.get(0), resultValues.get(0),
-                            itemNameValues.get(1), markValues.get(1), fullMarkValues.get(1), percentageValues.get(1), resultValues.get(1),
-                            itemNameValues.get(2), markValues.get(2), fullMarkValues.get(2), percentageValues.get(2), resultValues.get(2),
-                            itemNameValues.get(3), markValues.get(3), fullMarkValues.get(3), percentageValues.get(3), resultValues.get(3),
-                            itemNameValues.get(4), markValues.get(4), fullMarkValues.get(4), percentageValues.get(4), resultValues.get(4),
-                            itemNameValues.get(5), markValues.get(5), fullMarkValues.get(5), percentageValues.get(5), resultValues.get(5),
-                            itemNameValues.get(6), markValues.get(6), fullMarkValues.get(6), percentageValues.get(6), resultValues.get(6),
-                            itemNameValues.get(7), markValues.get(7), fullMarkValues.get(7), percentageValues.get(7), resultValues.get(7));
-
-                    if(insertData == true){
-                        Toast.makeText(SubjectCalculatorActivity.this, "Data successfully Inserted", Toast.LENGTH_LONG).show();
-                        loadSubjectSpinnerData();
-                    }else{
-                        Toast.makeText(SubjectCalculatorActivity.this, "Something went wrong!", Toast.LENGTH_LONG).show();
-                    }
+                    Toast.makeText(SubjectCalculatorActivity.this, "Please insert subject name.", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -377,6 +417,44 @@ public class SubjectCalculatorActivity extends AppCompatActivity implements Adap
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
+
+        EditText test = findViewById(R.id.itemName1);
+        String test1 = test.getText().toString();
+
+        outState.putString("test1", test1);
+
+        for(int i = 1; i < 9; i++) {
+            String idItem = "itemName" + i;
+            String idMark = "mark" + i;
+            String idFullMark = "fullMark" + i;
+            String percentageId = "percentage" + i;
+            String resultId = "resultEach" + i;
+
+            @SuppressLint("DiscouragedApi") int idItemInt = getResources().getIdentifier(idItem, "id", getPackageName());
+            @SuppressLint("DiscouragedApi") int idMarkInt = getResources().getIdentifier(idMark, "id", getPackageName());
+            @SuppressLint("DiscouragedApi") int idFullMarkInt = getResources().getIdentifier(idFullMark, "id", getPackageName());
+            @SuppressLint("DiscouragedApi") int percentageIdInt = getResources().getIdentifier(percentageId, "id", getPackageName());
+            @SuppressLint("DiscouragedApi") int resultIdInt = getResources().getIdentifier(resultId, "id", getPackageName());
+
+            String idItemString = ((EditText) findViewById(idItemInt)).getText().toString();
+            String idMarkString = ((EditText) findViewById(idMarkInt)).getText().toString();
+            String idFullMarkString = ((EditText) findViewById(idFullMarkInt)).getText().toString();
+            String percentageIdString = (((EditText) findViewById(percentageIdInt)).getText().toString()).isEmpty() ? "0" : ((TextView) findViewById(percentageIdInt)).getText().toString();
+            String resultIdString = ((TextView) findViewById(resultIdInt)).getText().toString();
+            outState.putString(idItem, idItemString);
+            outState.putString(idMark, idMarkString);
+            outState.putString(idFullMark, idFullMarkString);
+            outState.putString(percentageId, percentageIdString);
+            outState.putString(resultId, resultIdString);
+        }
+
+        String subjectName = ((EditText) findViewById(R.id.subjectName)).getText().toString();
+        String subjectId = ((TextView) findViewById(R.id.subjectID)).getText().toString();
+
+        outState.putString("subjectID", subjectId);
+        outState.putString("subjectName", subjectName);
+
         super.onSaveInstanceState(outState);
     }
+
 }
