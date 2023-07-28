@@ -1,0 +1,1391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80D8D8D8"
+    tools:context=".SubjectCalculatorActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/allerta_stencil"
+        android:text="Subject Tracker"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subjectSpinner" />
+
+    <ImageView
+        android:id="@+id/menuReturnButton2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@android:string/VideoView_error_button"
+        android:onClick="backToMenuClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subjectSpinner"
+        app:srcCompat="@mipmap/ic_launcher_home" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="77dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/jcu" />
+
+    <TextView
+        android:id="@+id/subjectID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/subjectName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/subjectName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:ems="7"
+        android:hint="Subject Name"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuReturnButton2" />
+
+    <Button
+        android:id="@+id/dataDeleteButton"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner"
+        android:onClick="deleteDataButtonClicked"
+        android:text="DELETE"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollView"
+        app:layout_constraintEnd_toStartOf="@+id/dataSaveButton"
+        app:layout_constraintTop_toBottomOf="@+id/menuReturnButton2" />
+
+    <Button
+        android:id="@+id/dataSaveButton"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corner"
+        android:onClick="saveDataButtonClicked"
+        android:text="SAVE"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuReturnButton2" />
+
+        <Spinner
+            android:id="@+id/subjectSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:minHeight="48dp"
+            android:spinnerMode="dialog"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ScrollView
+        android:id="@+id/ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_marginTop="15dp"
+        android:background="#190072BC"
+        android:scrollbarStyle="insideOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subjectName"
+        app:layout_marginBaseline="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:divider="?android:dividerHorizontal"
+                android:orientation="horizontal"
+                android:showDividers="middle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="82dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Item Name"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mark"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Full Mark"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="58dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Percent"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Convert"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/underline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:divider="?android:dividerHorizontal"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:text="1."
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/itemName1"
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="Item"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/mark1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/fullMark1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/percentage1"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/convertButton1"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@android:string/VideoView_error_button"
+                        android:onClick="convertButtonClicked"
+                        app:srcCompat="@mipmap/ic_action_convert" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/convertResult1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/textView36"
+                        android:layout_width="98dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/resultEach1"
+                        android:layout_width="158dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/returnCovertButton1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:onClick="returnCovertButtonClicked"
+                        android:text="Edit"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/underline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:dividerHorizontal"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:text="2."
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/itemName2"
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="Item"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/mark2"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/fullMark2"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/percentage2"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/convertButton2"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@android:string/VideoView_error_button"
+                        android:onClick="convertButtonClicked"
+                        app:srcCompat="@mipmap/ic_action_convert" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/convertResult2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/textView37"
+                        android:layout_width="98dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/resultEach2"
+                        android:layout_width="158dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/returnCovertButton2"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:onClick="returnCovertButtonClicked"
+                        android:text="Edit"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/underline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:dividerHorizontal"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/textView23"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:text="3."
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/itemName3"
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="Item"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/mark3"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/fullMark3"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/percentage3"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/convertButton3"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@android:string/VideoView_error_button"
+                        android:onClick="convertButtonClicked"
+                        app:srcCompat="@mipmap/ic_action_convert" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/convertResult3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/textView39"
+                        android:layout_width="98dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/resultEach3"
+                        android:layout_width="158dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/returnCovertButton3"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:onClick="returnCovertButtonClicked"
+                        android:text="Edit"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/underline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout3">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:dividerHorizontal"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/textView25"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:text="4."
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/itemName4"
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="Item"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/mark4"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/fullMark4"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/percentage4"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/convertButton4"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@android:string/VideoView_error_button"
+                        android:onClick="convertButtonClicked"
+                        app:srcCompat="@mipmap/ic_action_convert" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/convertResult4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/textView41"
+                        android:layout_width="98dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/resultEach4"
+                        android:layout_width="158dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/returnCovertButton4"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:onClick="returnCovertButtonClicked"
+                        android:text="Edit"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/underline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout4" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout4">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:divider="?android:dividerHorizontal"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:text="5."
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/itemName5"
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="Item"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/mark5"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/fullMark5"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/percentage5"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/convertButton5"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@android:string/VideoView_error_button"
+                        android:onClick="convertButtonClicked"
+                        app:srcCompat="@mipmap/ic_action_convert" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/convertResult5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/textView43"
+                        android:layout_width="98dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/resultEach5"
+                        android:layout_width="158dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/returnCovertButton5"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:onClick="returnCovertButtonClicked"
+                        android:text="Edit"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/underline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout5" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout5">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:dividerHorizontal"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/textView29"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:text="6."
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/itemName6"
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="Item"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/mark6"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/fullMark6"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/percentage6"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/convertButton6"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@android:string/VideoView_error_button"
+                        android:onClick="convertButtonClicked"
+                        app:srcCompat="@mipmap/ic_action_convert" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/convertResult6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/textView45"
+                        android:layout_width="98dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/resultEach6"
+                        android:layout_width="158dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/returnCovertButton6"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:onClick="returnCovertButtonClicked"
+                        android:text="Edit"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                android:id="@+id/view6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/underline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout6" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout6">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:dividerHorizontal"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/textView31"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:text="7."
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/itemName7"
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="Item"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/mark7"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/fullMark7"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/percentage7"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/convertButton7"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@android:string/VideoView_error_button"
+                        android:onClick="convertButtonClicked"
+                        app:srcCompat="@mipmap/ic_action_convert" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/convertResult7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/textView47"
+                        android:layout_width="98dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/resultEach7"
+                        android:layout_width="158dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/returnCovertButton7"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:onClick="returnCovertButtonClicked"
+                        android:text="Edit"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <View
+                android:id="@+id/view7"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/underline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout7" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout7">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="?android:dividerHorizontal"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/textView33"
+                        android:layout_width="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:text="8."
+                        android:textAlignment="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/itemName8"
+                        android:layout_width="82dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="Item"
+                        android:inputType="text"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/mark8"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/fullMark8"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/percentage8"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/convertButton8"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@android:string/VideoView_error_button"
+                        android:onClick="convertButtonClicked"
+                        app:srcCompat="@mipmap/ic_action_convert" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/convertResult8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/textView49"
+                        android:layout_width="98dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/resultEach8"
+                        android:layout_width="158dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/returnCovertButton8"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corner"
+                        android:onClick="returnCovertButtonClicked"
+                        android:text="Edit"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_corner"
+        android:onClick="calculateButtonClicked"
+        android:padding="15dp"
+        android:text="Calculate"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ScrollView" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/calculateButton"
+        app:layout_constraintTop_toBottomOf="@+id/ScrollView" />
+
+        <TextView
+            android:id="@+id/resultTextView2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="TextView"
+            android:visibility="invisible"
+            app:layout_constraintStart_toEndOf="@+id/calculateButton"
+            app:layout_constraintTop_toBottomOf="@+id/ScrollView" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:text="V 1.0.0 Developed by Joey"
+            android:textColor="#595959"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultTextView2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
